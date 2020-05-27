@@ -2,45 +2,57 @@ import Vue from 'vue';
 import App from './App.vue';
 import Routes from "@/routes.js";
 import VueRouter from 'vue-router';
+import VueAnnouncer from 'vue-announcer';
 
-// import NotFound from '@/pages/NotFound.vue';
-
+// Add router middleware
 Vue.use(VueRouter);
 
+// Create router using navRoutes file
 const router = new VueRouter({
     routes: Routes,
-    mode: 'history'
-})
+    mode: 'history',
+    linkExactActiveClass: 'active'
+});
 
+// Add announcer middleware for screen reader accessibility on route change
+Vue.use(VueAnnouncer, {
+    complimentRoute: 'has loaded'
+}, router);
+
+// Hide production warning in console
 Vue.config.productionTip = false;
 
+// List of navRoutes for the navbar and their readable name
 const pages = [
     {
         name: 'Home',
-        link: '/'
+        path: '/'
     },
     {
         name: 'About',
-        link: '/about'
+        path: '/about'
     },
     {
         name: 'Projects',
-        link: '/projects'
+        path: '/projects'
     }
-]
+];
 
+// Instantiate Vue root with the title and navbar navRoutes
 const app = new Vue({
     data: {
         title: 'Michael Munoz',
-        routes: pages
+        navRoutes: pages,
+        nodeEnv: process.env.NODE_ENV
     },
-    template: '<app :title="title" :routes="routes"/>',
+    template: '<app :title="title" :navRoutes="navRoutes"/>',
     components: {
         'app': App
     },
     router: router
 }).$mount('#app');
 
+// Update the current route on the popstate event
 window.addEventListener('popstate', () => {
     app.currentRoute = window.location.pathname;
 });

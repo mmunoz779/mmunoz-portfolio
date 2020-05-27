@@ -5,16 +5,16 @@
 </template>
 
 <script>
-    import MainLayout from '@/layouts/Main'
+    import MainLayout from '@/layouts/Main';
 
     export default {
         name: "Projects",
         components: {
             MainLayout
         }
-    }
+    };
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
 
 </style>

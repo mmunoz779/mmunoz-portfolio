@@ -14,7 +14,7 @@
             MainLayout,
             'app-summary': Summary
         }
-    }
+    };
 </script>
 
 <style scoped>
