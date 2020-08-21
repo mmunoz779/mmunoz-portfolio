@@ -2,7 +2,7 @@
     <div class="body">
         <div class="valign-wrapper">
             <h2 class="text-welcome">
-                Welcome! I'm Michael Munoz, a versatile Software Developer
+                Welcome! I'm Michael Munoz, this portfolio site is currently under construction and is not complete.
             </h2>
         </div>
     </div>
