@@ -1,11 +1,16 @@
-const webpack = require('webpack')
-const TerserPlugin = require('terser-webpack-plugin')
+const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     outputDir: "docs",
-    publicPath: process.env.NODE_ENV === "production" ? "/mmunoz-portfolio" : "/",
+    // publicPath: process.env.NODE_ENV === "production" ? "/mmunoz-portfolio/" : "/",
+    publicPath: "/mmunoz-portfolio/",
     configureWebpack: config => {
-        // config.resolve = {alias: {'vue$': 'vue/dist/vue.esm.js'}};
+        config.resolve = {
+            extensions: ['.js', '.vue', '.ts'],
+            alias: {'vue$': 'vue/dist/vue.esm.js', '@': path.resolve("src")}
+        };
         if (process.env.NODE_ENV === 'production') {
             config.devtool = '#source-map';
             // http://vue-loader.vuejs.org/en/workflow/production.html
@@ -25,12 +30,12 @@ module.exports = {
 
                             // Custom logic for extract comments
 
-                            const { map, code } = require('terser')
+                            const {map, code} = require('terser')
                                 .minify(file, {
-                                    compress: { toplevel: true}
+                                    compress: {toplevel: true}
                                 });
 
-                            return { map, code, extractedComments };
+                            return {map, code, extractedComments};
                         }
                     })]
                 })

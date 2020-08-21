@@ -12,7 +12,7 @@ const router = new VueRouter({
     routes: Routes,
     mode: 'history',
     linkExactActiveClass: 'active',
-    base: Vue.config.publicPath
+    base: process.env.NODE_ENV === 'production' ? '/mmunoz-portfolio/' : '/'
 });
 
 // Add announcer middleware for screen reader accessibility on route change
