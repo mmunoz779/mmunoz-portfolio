@@ -11,7 +11,8 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     routes: Routes,
     mode: 'history',
-    linkExactActiveClass: 'active'
+    linkExactActiveClass: 'active',
+    base: Vue.config.publicPath
 });
 
 // Add announcer middleware for screen reader accessibility on route change

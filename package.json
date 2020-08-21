@@ -9,17 +9,17 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "elliptic": "^6.5.3",
+    "lodash": "^4.17.20",
     "material-icons": "^0.3.1",
     "materialize-css": "^1.0.0-rc.2",
     "mobile-device-detect": "^0.3.3",
+    "serialize-javascript": "^4.0.0",
     "vue": "^2.6.11",
     "vue-announcer": "^1.0.6",
     "vue-router": "^3.1.6",
     "webpack": "^4.43.0",
-    "serialize-javascript": "^4.0.0",
-    "elliptic": "^6.5.3",
-    "websocket-extensions": "^0.1.4",
-    "lodash": "^4.17.20"
+    "websocket-extensions": "^0.1.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",
@@ -30,6 +30,8 @@
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
+    "terser": "^5.2.1",
+    "terser-webpack-plugin": "^4.1.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
